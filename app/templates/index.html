@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+<!-- Content block -->
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row align-items-center" style="text-align:center;justify-content:center;">
+            <div class="p-5">
+            <h2 class="display-4">Heaven Unleashed</h2>
+            <p>I am Amazing, Blessed, Courageous, Diligent, Excellent, Favored, Gifted, Holy, Intelligent, Joyful, Kinging, Loving, Mighty, Noble, Opulent, Perfect, Queenin, Reverent, Super-intelligent, Talented, Ultra, Virtuous, Wealthy, Yomish, Zealous.</p>
+            <a class="btn btn-info btn-sm text-center" style="margin-bottom: 10px;"  href="{{url_for('main.new_post')}}">Write a new Post</a>
+        </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="conatiner">
+        <div class="row align-items-center" style="text-align:center;justify-content:center;">
+            <div class="col-md-6">
+                {{macro.displayPosts(posts)}}
+            </div>
+            <div class="col-md-5">
+                <div class="card-body card-body-cascade text-center" style="border:2px solid #222;border-radius: 5px;margin-bottom: 10px;">
+                    <h3 class="h3-responsive">{{quote.quote}}</h3>
+                    <h5>~ {{quote.author}}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock%}
