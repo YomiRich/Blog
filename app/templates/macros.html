@@ -1,0 +1,41 @@
+
+{% macro displayPosts(post_list) %}
+
+    {% for post in post_list %}
+    <div class="thumbnail">
+        <div class="caption">
+            <div class="card" style="border:2px solid #222;border-radius: 5px;margin-bottom: 10px;">
+                <div class="card-body">
+                <h3>Author:</h3>
+                <p class="card-subtitle mb-2 text-muted">{{post.user.username}}</p>
+                <h3>Post Title:</h3>
+                <h4> <a href="{{url_for('main.single_post',id=post.id)}}">{{post.title}}</a></h4>
+                <h3>About Post:</h3>
+                <p class="card-subtitle mb-2 text-muted">{{post.description}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+{% endmacro %}
+
+{% macro displayComments(all_comments) %}
+{% if all_comments %}
+    {% for comment in all_comments %}
+    <div class="thumbnail" style="border:2px solid #222;border-radius: 5px;box-shadow: 5px 10px;">
+        <div class="caption">
+            <div class="card" style="width: 40rem;">
+                <div class="card-body"> 
+                    <p class="card-text">{{comment.comments|capitalize}}</p>
+                    <p class="card-subtitle mb-2 text-muted">Posted by:{{comment.user.username}}</p>
+                    <p class="card-subtitle mb-2 text-muted"> Posted on: {{comment.posted}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <h3 class ="text-center" style="font-size:200%"> This post has no Comment </h3>
+{% endif %}
+{% endmacro %}
