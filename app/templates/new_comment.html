@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="well" style="border:1px solid #222;border-radius: 5px;">
+        <div class="jumbotron">
+            {{ wtf.quick_form(comment_form) }}
+        </div>    
+            {{macro.displayComments(all_comments)}}
+    </div>
+</div>
+
+{% endblock %}
