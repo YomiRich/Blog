@@ -1,4 +1,4 @@
-# Blog Post
+# Blog
 
 ## Built By 
 Yomi Rich
